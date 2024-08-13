@@ -1,0 +1,2070 @@
+{
+  "source": {
+    "hash": "0xbbdaea16f6fb02aeb41d6986735c5072855bbfe4137ee6577fe3e4990c7b348c",
+    "language": "ink! 4.3.0",
+    "compiler": "rustc 1.72.0",
+    "build_info": {
+      "build_mode": "Debug",
+      "cargo_contract_version": "4.1.1",
+      "rust_toolchain": "stable-aarch64-apple-darwin",
+      "wasm_opt_settings": {
+        "keep_debug_symbols": false,
+        "optimization_passes": "Z"
+      }
+    }
+  },
+  "contract": {
+    "name": "acurast-proxy-ink",
+    "version": "0.1.0",
+    "authors": [
+      "Papers AG"
+    ]
+  },
+  "image": null,
+  "spec": {
+    "constructors": [
+      {
+        "args": [
+          {
+            "label": "owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "label": "ibc",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "new",
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink_primitives",
+            "ConstructorResult"
+          ],
+          "type": 17
+        },
+        "selector": "0x9bae9d5e"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "default",
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink_primitives",
+            "ConstructorResult"
+          ],
+          "type": 17
+        },
+        "selector": "0xed4b9d1b"
+      }
+    ],
+    "docs": [],
+    "environment": {
+      "accountId": {
+        "displayName": [
+          "AccountId"
+        ],
+        "type": 0
+      },
+      "balance": {
+        "displayName": [
+          "Balance"
+        ],
+        "type": 6
+      },
+      "blockNumber": {
+        "displayName": [
+          "BlockNumber"
+        ],
+        "type": 35
+      },
+      "chainExtension": {
+        "displayName": [
+          "ChainExtension"
+        ],
+        "type": 56
+      },
+      "hash": {
+        "displayName": [
+          "Hash"
+        ],
+        "type": 21
+      },
+      "maxEventTopics": 4,
+      "staticBufferSize": 16384,
+      "timestamp": {
+        "displayName": [
+          "Timestamp"
+        ],
+        "type": 5
+      }
+    },
+    "events": [
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": false,
+            "label": "action_id",
+            "type": {
+              "displayName": [
+                "u64"
+              ],
+              "type": 5
+            }
+          }
+        ],
+        "docs": [],
+        "label": "IncomingActionProcessed",
+        "module_path": "acurast_proxy_ink::proxy",
+        "signature_topic": "0x188bac6916db40f1be3ca22484075adc3b6f4147e7e78b6af6079339f5591219"
+      }
+    ],
+    "lang_error": {
+      "displayName": [
+        "ink",
+        "LangError"
+      ],
+      "type": 18
+    },
+    "messages": [
+      {
+        "args": [
+          {
+            "label": "actions",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 19
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "configure",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 22
+        },
+        "selector": "0xb1b573c4"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "config",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 27
+        },
+        "selector": "0x70714744"
+      },
+      {
+        "args": [
+          {
+            "label": "actions",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 28
+            }
+          }
+        ],
+        "default": false,
+        "docs": [
+          " This method is called by users to interact with the acurast protocol"
+        ],
+        "label": "send_actions",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 22
+        },
+        "selector": "0x70c45b96"
+      },
+      {
+        "args": [
+          {
+            "label": "payload",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 7
+            }
+          }
+        ],
+        "default": false,
+        "docs": [
+          " This method purpose is to receive messages from the acurast protocol."
+        ],
+        "label": "receive_action",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 22
+        },
+        "selector": "0x7cd99c82"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 6
+            }
+          },
+          {
+            "label": "payload",
+            "type": {
+              "displayName": [
+                "Vec"
+              ],
+              "type": 7
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "fulfill",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 22
+        },
+        "selector": "0x89c2c64f"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 6
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "job",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 49
+        },
+        "selector": "0x267dd617"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "next_job_id",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 55
+        },
+        "selector": "0xeae41891"
+      }
+    ]
+  },
+  "storage": {
+    "root": {
+      "layout": {
+        "struct": {
+          "fields": [
+            {
+              "layout": {
+                "struct": {
+                  "fields": [
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 0
+                        }
+                      },
+                      "name": "owner"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 0
+                        }
+                      },
+                      "name": "ibc"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 0
+                        }
+                      },
+                      "name": "acurast_pallet_account"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 3
+                        }
+                      },
+                      "name": "paused"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 4
+                        }
+                      },
+                      "name": "payload_version"
+                    },
+                    {
+                      "layout": {
+                        "leaf": {
+                          "key": "0x00000000",
+                          "ty": 4
+                        }
+                      },
+                      "name": "max_message_bytes"
+                    },
+                    {
+                      "layout": {
+                        "struct": {
+                          "fields": [
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 4
+                                }
+                              },
+                              "name": "numerator"
+                            },
+                            {
+                              "layout": {
+                                "leaf": {
+                                  "key": "0x00000000",
+                                  "ty": 4
+                                }
+                              },
+                              "name": "denominator"
+                            }
+                          ],
+                          "name": "ExchangeRatio"
+                        }
+                      },
+                      "name": "exchange_ratio"
+                    }
+                  ],
+                  "name": "Config"
+                }
+              },
+              "name": "config"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 5
+                }
+              },
+              "name": "next_outgoing_action_id"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 6
+                }
+              },
+              "name": "next_job_id"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x451807c9",
+                              "ty": 4
+                            }
+                          },
+                          "name": "0"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x451807c9",
+                              "ty": 7
+                            }
+                          },
+                          "name": "1"
+                        }
+                      ],
+                      "name": "(A, B)"
+                    }
+                  },
+                  "root_key": "0x451807c9",
+                  "ty": 8
+                }
+              },
+              "name": "job_info"
+            }
+          ],
+          "name": "Proxy"
+        }
+      },
+      "root_key": "0x00000000",
+      "ty": 14
+    }
+  },
+  "types": [
+    {
+      "id": 0,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 1,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "AccountId"
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "type": {
+        "def": {
+          "array": {
+            "len": 32,
+            "type": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": {
+        "def": {
+          "primitive": "u8"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": {
+        "def": {
+          "primitive": "bool"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": {
+        "def": {
+          "primitive": "u16"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": {
+        "def": {
+          "primitive": "u64"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": {
+        "def": {
+          "primitive": "u128"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": {
+        "def": {
+          "composite": {}
+        },
+        "params": [
+          {
+            "name": "K",
+            "type": 6
+          },
+          {
+            "name": "V",
+            "type": 9
+          },
+          {
+            "name": "KeyType",
+            "type": 10
+          }
+        ],
+        "path": [
+          "ink_storage",
+          "lazy",
+          "mapping",
+          "Mapping"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "type": {
+        "def": {
+          "tuple": [
+            4,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": {
+        "def": {
+          "composite": {}
+        },
+        "params": [
+          {
+            "name": "L",
+            "type": 11
+          },
+          {
+            "name": "R",
+            "type": 12
+          }
+        ],
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ResolverKey"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": {
+        "def": {
+          "composite": {}
+        },
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "AutoKey"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": {
+        "def": {
+          "composite": {}
+        },
+        "params": [
+          {
+            "name": "ParentKey",
+            "type": 13
+          }
+        ],
+        "path": [
+          "ink_storage_traits",
+          "impls",
+          "ManualKey"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "type": {
+        "def": {
+          "tuple": []
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "config",
+                "type": 15,
+                "typeName": "<Config as::ink::storage::traits::AutoStorableHint<::ink::\nstorage::traits::ManualKey<3261817972u32, ()>,>>::Type"
+              },
+              {
+                "name": "next_outgoing_action_id",
+                "type": 5,
+                "typeName": "<u64 as::ink::storage::traits::AutoStorableHint<::ink::storage\n::traits::ManualKey<482503923u32, ()>,>>::Type"
+              },
+              {
+                "name": "next_job_id",
+                "type": 6,
+                "typeName": "<u128 as::ink::storage::traits::AutoStorableHint<::ink::storage\n::traits::ManualKey<3005016754u32, ()>,>>::Type"
+              },
+              {
+                "name": "job_info",
+                "type": 8,
+                "typeName": "<Mapping<u128, (u16, Vec<u8>)> as::ink::storage::traits::\nAutoStorableHint<::ink::storage::traits::ManualKey<3372685381u32,\n()>,>>::Type"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "Proxy"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "owner",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "ibc",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "acurast_pallet_account",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "paused",
+                "type": 3,
+                "typeName": "bool"
+              },
+              {
+                "name": "payload_version",
+                "type": 4,
+                "typeName": "u16"
+              },
+              {
+                "name": "max_message_bytes",
+                "type": 4,
+                "typeName": "u16"
+              },
+              {
+                "name": "exchange_ratio",
+                "type": 16,
+                "typeName": "ExchangeRatio"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "Config"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "numerator",
+                "type": 4,
+                "typeName": "u16"
+              },
+              {
+                "name": "denominator",
+                "type": 4,
+                "typeName": "u16"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "ExchangeRatio"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 13
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 13
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 1,
+                "name": "CouldNotReadInput"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "LangError"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 20
+          }
+        }
+      }
+    },
+    {
+      "id": 20,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 0,
+                    "typeName": "AccountId"
+                  }
+                ],
+                "index": 0,
+                "name": "Owner"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 0,
+                    "typeName": "AccountId"
+                  }
+                ],
+                "index": 1,
+                "name": "IBCContract"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 0,
+                    "typeName": "AccountId"
+                  }
+                ],
+                "index": 2,
+                "name": "AcurastPalletAccount"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 3,
+                    "typeName": "bool"
+                  }
+                ],
+                "index": 3,
+                "name": "Paused"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 4,
+                    "typeName": "u16"
+                  }
+                ],
+                "index": 4,
+                "name": "PayloadVersion"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 4,
+                    "typeName": "u16"
+                  }
+                ],
+                "index": 5,
+                "name": "MaxMessageBytes"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 16,
+                    "typeName": "ExchangeRatio"
+                  }
+                ],
+                "index": 6,
+                "name": "ExchangeRatio"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 21,
+                    "typeName": "Hash"
+                  }
+                ],
+                "index": 7,
+                "name": "Code"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "ConfigureArgument"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 1,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "Hash"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 23
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 13
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 24
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 13
+          },
+          {
+            "name": "E",
+            "type": 24
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 4,
+                    "typeName": "u16"
+                  }
+                ],
+                "index": 0,
+                "name": "UnknownJobVersion"
+              },
+              {
+                "index": 1,
+                "name": "JobAlreadyFinished"
+              },
+              {
+                "index": 2,
+                "name": "NotJobProcessor"
+              },
+              {
+                "index": 3,
+                "name": "UnknownJob"
+              },
+              {
+                "index": 4,
+                "name": "ContractPaused"
+              },
+              {
+                "index": 5,
+                "name": "NotOwner"
+              },
+              {
+                "index": 6,
+                "name": "NotJobCreator"
+              },
+              {
+                "index": 7,
+                "name": "CannotFinalizeJob"
+              },
+              {
+                "index": 8,
+                "name": "OutgoingActionTooBig"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 25,
+                    "typeName": "String"
+                  }
+                ],
+                "index": 9,
+                "name": "Verbose"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 25,
+                    "typeName": "String"
+                  }
+                ],
+                "index": 10,
+                "name": "InvalidIncomingAction"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26,
+                    "typeName": "acurast_ibc_ink::Error"
+                  }
+                ],
+                "index": 11,
+                "name": "IBCError"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 25,
+                    "typeName": "String"
+                  }
+                ],
+                "index": 12,
+                "name": "ConsumerError"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 25,
+                    "typeName": "String"
+                  }
+                ],
+                "index": 13,
+                "name": "LangError"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "Error"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "type": {
+        "def": {
+          "primitive": "str"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "ContractPaused"
+              },
+              {
+                "index": 1,
+                "name": "NotOwner"
+              },
+              {
+                "index": 2,
+                "name": "IncorrectRecipient"
+              },
+              {
+                "index": 3,
+                "name": "MessageAlreadyReceived"
+              },
+              {
+                "index": 4,
+                "name": "PublicKeyUnknown"
+              },
+              {
+                "index": 5,
+                "name": "DuplicateSignature"
+              },
+              {
+                "index": 6,
+                "name": "SignatureInvalid"
+              },
+              {
+                "index": 7,
+                "name": "NotEnoughSignaturesValid"
+              },
+              {
+                "index": 8,
+                "name": "MessageWithSameNoncePending"
+              },
+              {
+                "index": 9,
+                "name": "TTLSmallerThanMinimum"
+              },
+              {
+                "index": 10,
+                "name": "MessageNotFound"
+              },
+              {
+                "index": 11,
+                "name": "DeliveryConfirmationOverdue"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_ibc_ink",
+          "ibc",
+          "Error"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 15
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 15
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 29
+          }
+        }
+      }
+    },
+    {
+      "id": 29,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 30,
+                    "typeName": "RegisterJobUserInput"
+                  }
+                ],
+                "index": 0,
+                "name": "RegisterJob"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 6,
+                    "typeName": "u128"
+                  }
+                ],
+                "index": 1,
+                "name": "DeregisterJob"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 43,
+                    "typeName": "Vec<u128>"
+                  }
+                ],
+                "index": 2,
+                "name": "FinalizeJob"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 44,
+                    "typeName": "SetJobEnvironmentUserInput"
+                  }
+                ],
+                "index": 3,
+                "name": "SetJobEnvironment"
+              },
+              {
+                "index": 4,
+                "name": "Noop"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "UserAction"
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "job_registration",
+                "type": 31,
+                "typeName": "JobRegistrationV1"
+              },
+              {
+                "name": "destination",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "expected_fulfillment_fee",
+                "type": 6,
+                "typeName": "u128"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "RegisterJobUserInput"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "script",
+                "type": 7,
+                "typeName": "Vec<u8>"
+              },
+              {
+                "name": "allowed_sources",
+                "type": 32,
+                "typeName": "Option<Vec<[u8; 32]>>"
+              },
+              {
+                "name": "allow_only_verified_sources",
+                "type": 3,
+                "typeName": "bool"
+              },
+              {
+                "name": "schedule",
+                "type": 34,
+                "typeName": "ScheduleV1"
+              },
+              {
+                "name": "memory",
+                "type": 35,
+                "typeName": "u32"
+              },
+              {
+                "name": "network_requests",
+                "type": 35,
+                "typeName": "u32"
+              },
+              {
+                "name": "storage",
+                "type": 35,
+                "typeName": "u32"
+              },
+              {
+                "name": "required_modules",
+                "type": 36,
+                "typeName": "Vec<u16>"
+              },
+              {
+                "name": "extra",
+                "type": 37,
+                "typeName": "JobRequirementsV1"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_core_ink",
+          "types",
+          "JobRegistrationV1"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 33
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 33
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 34,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "duration",
+                "type": 5,
+                "typeName": "u64"
+              },
+              {
+                "name": "start_time",
+                "type": 5,
+                "typeName": "u64"
+              },
+              {
+                "name": "end_time",
+                "type": 5,
+                "typeName": "u64"
+              },
+              {
+                "name": "interval",
+                "type": 5,
+                "typeName": "u64"
+              },
+              {
+                "name": "max_start_delay",
+                "type": 5,
+                "typeName": "u64"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_core_ink",
+          "types",
+          "ScheduleV1"
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "type": {
+        "def": {
+          "primitive": "u32"
+        }
+      }
+    },
+    {
+      "id": 36,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 4
+          }
+        }
+      }
+    },
+    {
+      "id": 37,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "assignment_strategy",
+                "type": 38,
+                "typeName": "AssignmentStrategyV1"
+              },
+              {
+                "name": "slots",
+                "type": 2,
+                "typeName": "u8"
+              },
+              {
+                "name": "reward",
+                "type": 6,
+                "typeName": "u128"
+              },
+              {
+                "name": "min_reputation",
+                "type": 42,
+                "typeName": "Option<u128>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_core_ink",
+          "types",
+          "JobRequirementsV1"
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 39,
+                    "typeName": "Option<Vec<PlannedExecutionV1>>"
+                  }
+                ],
+                "index": 0,
+                "name": "Single"
+              },
+              {
+                "index": 1,
+                "name": "Competing"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_core_ink",
+          "types",
+          "AssignmentStrategyV1"
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 40
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 40
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 41
+          }
+        }
+      }
+    },
+    {
+      "id": 41,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "source",
+                "type": 1,
+                "typeName": "[u8; 32]"
+              },
+              {
+                "name": "start_delay",
+                "type": 5,
+                "typeName": "u64"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_core_ink",
+          "types",
+          "PlannedExecutionV1"
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 6
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 6
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 6
+          }
+        }
+      }
+    },
+    {
+      "id": 44,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "job_id",
+                "type": 6,
+                "typeName": "u128"
+              },
+              {
+                "name": "public_key",
+                "type": 7,
+                "typeName": "Vec<u8>"
+              },
+              {
+                "name": "processors",
+                "type": 45,
+                "typeName": "Vec<SetJobEnvironmentProcessor>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "SetJobEnvironmentUserInput"
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 46
+          }
+        }
+      }
+    },
+    {
+      "id": 46,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "address",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "variables",
+                "type": 47,
+                "typeName": "Vec<(Vec<u8>, Vec<u8>)>"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "SetJobEnvironmentProcessor"
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 48
+          }
+        }
+      }
+    },
+    {
+      "id": 48,
+      "type": {
+        "def": {
+          "tuple": [
+            7,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "id": 49,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 50
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 50
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 50,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 51
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 24
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 51
+          },
+          {
+            "name": "E",
+            "type": 24
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 51,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 52,
+                    "typeName": "JobInformationV1"
+                  }
+                ],
+                "index": 0,
+                "name": "V1"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "JobInformation"
+        ]
+      }
+    },
+    {
+      "id": 52,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "schedule",
+                "type": 34,
+                "typeName": "ScheduleV1"
+              },
+              {
+                "name": "creator",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "destination",
+                "type": 0,
+                "typeName": "AccountId"
+              },
+              {
+                "name": "processors",
+                "type": 53,
+                "typeName": "Vec<AccountId>"
+              },
+              {
+                "name": "expected_fulfillment_fee",
+                "type": 6,
+                "typeName": "u128"
+              },
+              {
+                "name": "remaining_fee",
+                "type": 6,
+                "typeName": "u128"
+              },
+              {
+                "name": "maximum_reward",
+                "type": 6,
+                "typeName": "u128"
+              },
+              {
+                "name": "status",
+                "type": 54,
+                "typeName": "JobStatus"
+              },
+              {
+                "name": "slots",
+                "type": 2,
+                "typeName": "u8"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "JobInformationV1"
+        ]
+      }
+    },
+    {
+      "id": 53,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 0
+          }
+        }
+      }
+    },
+    {
+      "id": 54,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "Open"
+              },
+              {
+                "index": 1,
+                "name": "Matched"
+              },
+              {
+                "index": 2,
+                "name": "Assigned"
+              },
+              {
+                "index": 3,
+                "name": "FinalizedOrCancelled"
+              }
+            ]
+          }
+        },
+        "path": [
+          "acurast_proxy_ink",
+          "proxy",
+          "JobStatus"
+        ]
+      }
+    },
+    {
+      "id": 55,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 6
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 18
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 6
+          },
+          {
+            "name": "E",
+            "type": 18
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 56,
+      "type": {
+        "def": {
+          "variant": {}
+        },
+        "path": [
+          "ink_env",
+          "types",
+          "NoChainExtension"
+        ]
+      }
+    }
+  ],
+  "version": 5
+}
