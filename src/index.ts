@@ -11,53 +11,13 @@ import {
 } from "@polkadot/api/types";
 import { Hash } from "@polkadot/types/interfaces/runtime";
 import { SignerPayloadRaw, SignerResult } from "@polkadot/types/types";
-import { RegistryTypes } from "@polkadot/types-codec/types";
 import metadata from "./acurast_proxy_ink.json";
 
 declare const _STD_: any;
 
-const CUSTOM_TYPES_INK: RegistryTypes = {
-  AcurastIbcInkIbcOutgoingMessageWithMeta: {
-    message: "AcurastIbcInkIbcMessage",
-    current_block: "u32",
-    ttl_block: "u32",
-    fee: "u128",
-    payer: "AccountId32",
-  },
-  AcurastIbcInkIbcIncomingMessageWithMeta: {
-    message: "AcurastIbcInkIbcMessage",
-    current_block: "u32",
-    relayer: "AccountId32",
-  },
-  AcurastIbcInkIbcMessage: {
-    id: "[u8; 32]",
-    sender: "AcurastIbcInkIbcSubject",
-    nonce: "[u8; 32]",
-    recipient: "AcurastIbcInkIbcSubject",
-    payload: "Bytes",
-  },
-  AcurastIbcInkIbcSubject: {
-    _enum: {
-      Acurast: "AcurastIbcInkIbcLayer",
-      AlephZero: "AcurastIbcInkIbcLayer",
-    },
-  },
-  AcurastIbcInkIbcLayer: {
-    _enum: {
-      Extrinsic: "AccountId32",
-      Contract: "AcurastIbcInkIbcContractCall",
-    },
-  },
-  AcurastIbcInkIbcContractCall: {
-    contract: "AccountId32",
-    selector: "Option<[u8; 4]>",
-  },
-};
-
 const provider = new WsProvider("wss://ws.test.azero.dev/");
 export const alephZeroApi = ApiPromise.create({
   provider,
-  types: { ...CUSTOM_TYPES_INK },
 });
 
 async function main() {
