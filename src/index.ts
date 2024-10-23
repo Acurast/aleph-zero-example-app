@@ -21,7 +21,7 @@ export const alephZeroApi = ApiPromise.create({
 });
 
 async function main() {
-  const text = "hello AlephZero";
+  const text = new Date().toISOString();
   console.log("Fulfilling with text as payload: ", text);
   await fulfill(
     getJobId(),
@@ -49,7 +49,8 @@ async function fulfill(jobId: string, payload: string): Promise<void> {
     await alephZeroApi,
     metadata,
     // Acurast Proxy Contract
-    "5Df6i9Ccy9R3bgBDvoWhYp8bTonxEWRqQMYqHisFpEtFUkpo"
+    // "5Df6i9Ccy9R3bgBDvoWhYp8bTonxEWRqQMYqHisFpEtFUkpo", // devnet
+    "5Gn57v4P85q2KaaCJrbuyMVkp4C3zb7VByfBgYyD7vEac7Dg" // canarynet
   );
 
   const p = [api.createType("u128", jobId), api.createType("Bytes", payload)];
@@ -161,6 +162,6 @@ async function signAndSend(
 main().catch((e) => {
   //discconnet
   provider.disconnect();
-  
+
   throw e;
 });
